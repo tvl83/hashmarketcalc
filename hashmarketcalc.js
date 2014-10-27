@@ -84,13 +84,13 @@ $(document).ready(function(){
         var total = parseFloat(power.val()) * perUnit.val();
         var sellFee = total * .05;
 
-        sellerFee.val(sellFee);
+        sellerFee.val(sellFee).toFixed(2);
 
         var buySubTotal = total + sellFee;
         var buyFee = buySubTotal * .05;
-        buyerFee.val(buyFee);
-        buyerPay.val(buySubTotal + buyFee);
+        buyerFee.val(buyFee).toFixed(2);
+        buyerPay.val(buySubTotal + buyFee).toFixed(2);
 
-        sellerNet.val(total - sellFee);
+        sellerNet.val(total - sellFee).toFixed(2);
     });
 });
