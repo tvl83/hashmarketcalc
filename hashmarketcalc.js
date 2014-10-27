@@ -1,9 +1,3 @@
-/**
- * Created by Thomas Le
- * @tvle83 on HashTalk.org
- * Tips Accepted: 19SxbN1odamj1THVsqW7BfpiCir1SsrFjP
- */
-
 var hashmarketcalc = {
 
     page        : $('.page-header').html().split('>')[2].trim(),
