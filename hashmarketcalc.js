@@ -89,7 +89,7 @@ $(document).ready(function(){
         var buySubTotal = total + sellFee;
 
         buyerFee.val(buySubTotal * .05);
-        buyerpay.val(buySubTotal + buyFee);
+        buyerPay.val(buySubTotal + buyFee);
 
         sellerNet.val(total - sellFee);
     });
