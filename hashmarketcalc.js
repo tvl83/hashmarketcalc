@@ -1,11 +1,12 @@
 var hashmarketcalc = {
 
     page        : $('.page-header').html().split('>')[2].trim(),
+    minimized   : false,
 
     setup     : function(){
         $('body')
             .append('<div id="dialog-message" title="About This Bookmarklet">\n    <p>\n        <small> \n            Created by Thomas Le @tvle83 on HashTalk.org<br />\n            I hope you find this useful! <br />\n            Contact me on HashTalk.org if you have any questions or suggestions. :) <br />\n            Donations Accepted at: 19SxbN1odamj1THVsqW7BfpiCir1SsrFjP\n        </small>\n    </p>\n</div>')
-            .append('<div id="hashmarketcalc-container" style="position:fixed;bottom:10px;right:10px;z-index:1000;background-color: black;height: 500px;">\n    <button onClick="hashmarketcalc.showBTC()" id="hashmarketcalcShowBTC" class="btn-info">Show BTC Prices</button>    \n    <button style="color: #fff; float: right !important;background-color: #d9534f;border-color: #d43f3a;" onClick="hashmarketcalc.about()">About</button>\n    <button style="color: #fff; float: right !important;background-color: #d9534f;border-color: #d43f3a;" onClick="hashmarketcalc.close()">X</button>\n    <br />\n    <form role="form">\n        <div class="form-group">\n            <label for="power" class="col-sm-2">Power (MH/GH):</label>\n            <input type="text" name="perUnit" id="power" class="form-control" value="" title="" required="required" >\n        </div>\n        <div class="form-group">\n           <label for="perUnit" class="col-sm-2">Per Unit:</label>\n           <input type="text" name="perUnit" id="perUnit" class="form-control" value="" title="" required="required" >           \n        </div>\n        <div class="form-group">\n           <label for="sellerFee" class="col-sm-2">Seller Fee:</label>\n           <input type="text" name="perUnit" id="sellerFee" class="form-control" value="" title="" disabled="disabled">           \n        </div>\n        <div class="form-group">\n           <label for="buyerFee" class="col-sm-2">Buyer Fee:</label>\n           <input type="text" name="perUnit" id="buyerFee" class="form-control" value="" title="" disabled="disabled">\n        </div>\n        <div class="form-group">\n           <label for="buyerPay" class="col-sm-2">Buyer Pays:</label>\n           <input type="text" name="perUnit" id="buyerPay" class="form-control" value="" title="" disabled="disabled">           \n        </div>\n        <div class="form-group">\n           <label for="sellerNet" class="col-sm-2">Seller Gets:</label>\n           <input type="text" name="perUnit" id="sellerNet" class="form-control" value="" title="" disabled="disabled">\n        </div>\n    </form>    \n</div>');
+            .append('<div id="hashmarketcalc-container" style="position:fixed;bottom:10px;right:10px;z-index:1000;background-color: black;height: 600px;">\n    <button onClick="hashmarketcalc.showBTC()" id="hashmarketcalcShowBTC" class="btn-info">Show BTC Prices</button>    \n    <button style="color: #fff; float: right !important;background-color: #d9534f;border-color: #d43f3a;" onClick="hashmarketcalc.about()">About</button>\n    <button style="color: #fff; float: right !important;background-color: #d9534f;border-color: #d43f3a;" onClick="hashmarketcalc.minimize()">_</button>\n    <button style="color: #fff; float: right !important;background-color: #d9534f;border-color: #d43f3a;" onClick="hashmarketcalc.close()">X</button>\n    <br />\n    <form role="form">\n        <div class="form-group">\n            <label for="power" class="col-sm-2">Power (MH/GH):</label>\n            <input type="text" name="perUnit" id="power" class="form-control" value="" title="" required="required" >\n        </div>\n        <div class="form-group">\n           <label for="perUnit" class="col-sm-2">Per Unit:</label>\n           <input type="text" name="perUnit" id="perUnit" class="form-control" value="" title="" required="required" >           \n        </div>\n        <div class="form-group">\n           <label for="sellerFee" class="col-sm-2">Seller Fee:</label>\n           <input type="text" name="perUnit" id="sellerFee" class="form-control" value="" title="" disabled="disabled">           \n        </div>\n        <div class="form-group">\n           <label for="buyerFee" class="col-sm-2">Buyer Fee:</label>\n           <input type="text" name="perUnit" id="buyerFee" class="form-control" value="" title="" disabled="disabled">\n        </div>\n        <div class="form-group">\n           <label for="buyerPay" class="col-sm-2">Buyer Pays:</label>\n           <input type="text" name="perUnit" id="buyerPay" class="form-control" value="" title="" disabled="disabled">           \n        </div>\n        <div class="form-group">\n           <label for="sellerNet" class="col-sm-2">Seller Gets:</label>\n           <input type="text" name="perUnit" id="sellerNet" class="form-control" value="" title="" disabled="disabled">\n        </div>\n    </form>    \n</div>');
         hashmarketcalc.loadjQueryUI();
     },
 
@@ -67,6 +68,18 @@ var hashmarketcalc = {
     close       : function(){
         $('#dialog-message').remove();
         $('#hashmarketcalc-container').remove();
+    },
+
+    minimize    : function(){
+        if(!hashmarketcalc.minimized) {
+            $('#hashmarketcalc-container').css('height','20px');
+            hashmarketcalc.minimized = true;
+        }
+        else if(hashmarketcalc.minimized) {
+            $('#hashmarketcalc-container').css('height','600px');
+            hashmarketcalc.minimized = false;
+        }
+
     }
 };
 
@@ -84,13 +97,15 @@ $(document).ready(function(){
         var total = parseFloat(power.val()) * perUnit.val();
         var sellFee = total * .05;
 
-        sellerFee.val(sellFee).toFixed(2);
+        sellerFee.val(sellFee.toFixed(2));
 
         var buySubTotal = total + sellFee;
         var buyFee = buySubTotal * .05;
-        buyerFee.val(buyFee).toFixed(2);
-        buyerPay.val(buySubTotal + buyFee).toFixed(2);
 
-        sellerNet.val(total - sellFee).toFixed(2);
+        buyerFee.val(buyFee.toFixed(2));
+
+        buyerPay.val((buySubTotal + buyFee).toFixed(2));
+
+        sellerNet.val((total - sellFee).toFixed(2));
     });
 });
