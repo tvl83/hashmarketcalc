@@ -94,6 +94,14 @@ $(document).ready(function(){
     var sellerNet = $('#sellerNet');
 
     perUnit.keyup(function() {
+        calculate();
+    });
+
+    power.keyup(function(){
+        calculate();
+    });
+
+    function calculate(){
         var total = parseFloat(power.val()) * perUnit.val();
         var sellFee = total * .05;
 
@@ -107,5 +115,5 @@ $(document).ready(function(){
         buyerPay.val((buySubTotal + buyFee).toFixed(2));
 
         sellerNet.val((total - sellFee).toFixed(2));
-    });
+    }
 });
