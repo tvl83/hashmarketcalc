@@ -73,5 +73,5 @@ var hashmarketcalc = {
 hashmarketcalc.main();
 
 $(document).ready(function(){
-
+    alert("test");
 });
