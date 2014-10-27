@@ -81,7 +81,7 @@ $(document).ready(function(){
     var sellerNet = $('#sellerNet');
 
     perUnit.keyup(function() {
-        var total = power * perUnit;
+        var total = parseFloat(power.val()) * perUnit.val();
         var sellFee = total * .05;
 
         sellerFee.val(sellFee);
