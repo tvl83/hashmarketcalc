@@ -17,7 +17,7 @@ Copy this code into the link part of a bookmark
 javascript: (function() {
     s = document.createElement('script');
     s.setAttribute('type', 'text/javascript');
-    s.setAttribute('src', 'https://rawgit.com/tvl83/hashmarketcalc/master/hashmarketcalc.js');
+    s.setAttribute('src', 'https://cdn.rawgit.com/tvl83/hashmarketcalc/v1.0/hashmarketcalc.js');
     document.body.appendChild(s);
 })();
 ```
