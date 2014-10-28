@@ -10,7 +10,7 @@ Tips Accepted: 19SxbN1odamj1THVsqW7BfpiCir1SsrFjP
 
 ###Set up and Use
 
-A bookmarklet is a bookmark link that uses javascript to perform tasks on the page. For this one it would be most convienent if it was in the bookmark toolbar for easy access.
+A bookmarklet is a bookmark link that uses javascript to perform tasks on the page. For this one it would be most convenient if it was in the bookmark toolbar for easy access.
 
 Copy this code into the link part of a bookmark
 ```js
@@ -21,3 +21,9 @@ javascript: (function() {
     document.body.appendChild(s);
 })();
 ```
+
+###Credits
+
+I used a couple lines of code from `Yoldark34's Zen Dashboard Enhancer` that allowed me to get the BTC Price based on the value of btc in your balance.
+
+Thank you [Yoldark34](https://github.com/Yoldark34) :) 
