@@ -6,7 +6,7 @@ If you have any suggestions or there is a bug please use this repo to report the
 
 I am @tvle83 on HashTalk.org
 
-Tips Accepted: 19SxbN1odamj1THVsqW7BfpiCir1SsrFjP
+Tips Accepted: 1EJzxjGVc7ZXTTm6ZGgGz99JV92UK5ubyQ
 
 ###Set up and Use
 
