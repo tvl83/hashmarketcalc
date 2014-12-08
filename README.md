@@ -6,7 +6,7 @@ If you have any suggestions or there is a bug please use this repo to report the
 
 I am @tvle83 on HashTalk.org
 
-Tips Accepted: 1EJzxjGVc7ZXTTm6ZGgGz99JV92UK5ubyQ
+Tips Accepted: 17oMJF56uLkaqbrzfGwwo1SvsjdsJtKZkD
 
 ###Set up and Use
 
@@ -17,7 +17,7 @@ Copy this code into the link part of a bookmark
 javascript: (function() {
     s = document.createElement('script');
     s.setAttribute('type', 'text/javascript');
-    s.setAttribute('src', 'https://cdn.rawgit.com/tvl83/hashmarketcalc/v1.1/hashmarketcalc.js');
+    s.setAttribute('src', 'https://cdn.rawgit.com/tvl83/hashmarketcalc/v1.2/hashmarketcalc.js');
     document.body.appendChild(s);
 })();
 ```
@@ -26,4 +26,10 @@ javascript: (function() {
 
 I used a couple lines of code from `Yoldark34's Zen Dashboard Enhancer` that allowed me to get the BTC Price based on the value of btc in your balance.
 
-Thank you [Yoldark34](https://github.com/Yoldark34) :) 
+Thank you [Yoldark34](https://github.com/Yoldark34) :)
+
+###History
+
+1.2
+- Minor changes. Updated BTC Tip Address
+- Fixed layout issue related to FireFox. (Thank you @Daffy from HashTalk.org)

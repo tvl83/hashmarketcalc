@@ -5,8 +5,8 @@ var hashmarketcalc = {
 
     setup     : function(){
         $('body')
-            .append('<div id="dialog-message" title="About This Bookmarklet">\n    <p>\n        <small> \n            Created by Thomas Le @tvle83 on HashTalk.org<br />\n            I hope you find this useful! <br />\n            Contact me on HashTalk.org if you have any questions or suggestions. :) <br />\n            Donations Accepted at: 1EJzxjGVc7ZXTTm6ZGgGz99JV92UK5ubyQ\n        </small>\n    </p>\n</div>')
-            .append('<div id="hashmarketcalc-container" style="padding:3px;position:fixed;bottom:10px;right:10px;z-index:1000;background-color: black;height: 370px; width:250px">\n    <button onClick="hashmarketcalc.showBTC()" id="hashmarketcalcShowBTC" class="btn-info">Show BTC Prices</button>    \n    <button style="color: #fff; float: right !important;background-color: #d9534f;border-color: #d43f3a;" onClick="hashmarketcalc.about()">About</button>\n    <button style="color: #fff; float: right !important;background-color: #d9534f;border-color: #d43f3a;" onClick="hashmarketcalc.minimize()">_</button>\n    <button style="color: #fff; float: right !important;background-color: #d9534f;border-color: #d43f3a;" onClick="hashmarketcalc.close()">X</button>\n    <br />\n    <form role="form">\n        <div class="form-group">\n            <label for="power" class="col-sm-12">Power (MH/GH):</label>\n            <input type="text" name="power" id="power" class="form-control" value="" title="" required="required" >\n        </div>\n        <div class="form-group">\n           <label for="perUnit" class="col-sm-12">Per Unit:</label>\n           <input type="text" name="perUnit" id="perUnit" class="form-control" value="" title="" required="required" >           \n        </div>\n        <div class="form-group">\n            <label for="total" class="col-sm-12">Total: (use this amount in the popup)</label>\n            <input type="text" name="total" id="total" class="form-control" value="" title="" disabled="disabled">\n        </div>\n        <p>\n            Seller Fee: <span id="sellerFee"></span>\n            <br/>\n            Seller Gets:<span id="sellerNet"></span>\n            <br/>\n            Buyer Fee: <span id="buyerFee"></span>\n            <br/>\n            Buyer Pays: <span id="buyerPay"></span>\n        </p>\n        </div>\n    </form>    \n</div>');
+            .append('<div id="dialog-message" title="About This Bookmarklet">\n    <p>\n        <small> \n            Created by Thomas Le @tvle83 on HashTalk.org<br />\n            I hope you find this useful! <br />\n            Contact me on HashTalk.org if you have any questions or suggestions. :) <br />\n            Donations Accepted at: 17oMJF56uLkaqbrzfGwwo1SvsjdsJtKZkD\n        </small>\n    </p>\n</div>')
+            .append('<div id="hashmarketcalc-container" style="padding:3px;position:fixed;bottom:10px;right:10px;z-index:1000;background-color: black;height: 370px; width:250px">\n    <button onClick="hashmarketcalc.showBTC()" id="hashmarketcalcShowBTC" class="btn-info">Show BTC Prices</button>    \n    <button style="color: #fff; float: right !important;background-color: #d9534f;border-color: #d43f3a;" onClick="hashmarketcalc.about()">About</button>\n    <button style="color: #fff; float: right !important;background-color: #d9534f;border-color: #d43f3a;" onClick="hashmarketcalc.minimize()">_</button>\n    <button style="color: #fff; float: right !important;background-color: #d9534f;border-color: #d43f3a;" onClick="hashmarketcalc.close()">X</button>\n    <br />\n    <form role="form">\n        <div class="form-group">\n            <label for="power" class="col-sm-12">Power (MH/GH):</label>\n            <input type="text" name="power" id="power" style="float: left;" class="form-control" value="" title="" required="required" >\n        </div>\n        <div class="form-group">\n           <label for="perUnit" class="col-sm-12">Per Unit:</label>\n           <input type="text" name="perUnit" id="perUnit" style="float: left;" class="form-control" value="" title="" required="required" >           \n        </div>\n        <div class="form-group">\n            <label for="total" class="col-sm-12">Total: (use this amount in the popup)</label>\n            <input type="text" name="total" id="total" style="float: left;" class="form-control" value="" title="" disabled="disabled">\n        </div>\n        <p>\n            Seller Fee: <span id="sellerFee"></span>\n            <br/>\n            Seller Gets:<span id="sellerNet"></span>\n            <br/>\n            Buyer Fee: <span id="buyerFee"></span>\n            <br/>\n            Buyer Pays: <span id="buyerPay"></span>\n        </p>\n        </div>\n    </form>    \n</div>');
         hashmarketcalc.loadjQueryUI();
     },
 
@@ -117,20 +117,5 @@ $(document).ready(function(){
 
         sellerNet.text((total - fee).toFixed(2));
         buyerPay.text((total + fee).toFixed(2));
-
-//
-//        var sellFee = total * .05;
-//
-//        txtTotal.val(total);
-//        sellerFee.text(sellFee.toFixed(2));
-//
-//        var buyFee = total * .05;
-//        var buyTotal = parseFloat(buyFee) + parseFloat(total);
-//
-//        buyerFee.text(buyFee.toFixed(2));
-//
-//        buyerPay.text(buyTotal);
-//
-//        sellerNet.text((total - sellFee).toFixed(2));
     }
 });
